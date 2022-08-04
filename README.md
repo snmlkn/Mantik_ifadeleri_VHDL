@@ -1,0 +1,1 @@
+# Mantik_ifadeleri_VHDL
