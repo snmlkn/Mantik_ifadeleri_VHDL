@@ -1,0 +1,58 @@
+------------------------------------------------------------------------------------------------------------------
+MANTIK İFADELERİ KAPILARI CANLANDIRMA
+-------------------------------------------------------------------------------------------------------------------
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity mantikIfadelleri is
+
+	Port(
+		A: in std_logic;
+		B: in std_logic;
+		SONUC: out std_logic;
+		sAND: in std_logic;
+		sNAND: in std_logic;
+		sOR: in std_logic;
+		sNOR: in std_logic;
+		sXOR: in std_logic;
+		sXNOR: in std_logic;
+		LED: out std_logic_vector;
+		AN: out std_logic_vector;
+	 );
+
+end mantikIfadeleri;
+
+architecture Behavioral of mantikIfadelri is
+
+BEGIN
+LED(0) <= A;
+LED(1) <= B;
+LED(2) <= sXNOR;
+LED(3) <= sXOR ;
+LED(4) <= sNOR;
+LED(5) <= sOR;
+LED(6) <= sNAND;
+LED(7) <= sAND;
+	islem: PROCESS(A,B,sNAND,sAND,sOR,sXOR,sNOR,sXNOR)
+	BEGIN
+		IF sAND = '1' THEN
+		 SONUC <= A and B;
+		ELSEIF = sNAND = '1' THEN
+		 SONUC <= A nand B;
+		ELSEIF = sOR = '1' THEN
+		 SONUC <= A or B;
+		ELSEIF = sNOR = '1' THEN
+		 SONUC <= A nor B;
+		ELSEIF = sXOR = '1' THEN
+		 SONUC <= A xor B;
+		ELSEIF = sXNOR = '1' THEN
+		 SONUC <= A xnor B;
+		ELSE 
+		 SONUC <= sAND;
+		END IF;
+	
+	
+	END PROCESS islem;
+
+end Behavioral;
